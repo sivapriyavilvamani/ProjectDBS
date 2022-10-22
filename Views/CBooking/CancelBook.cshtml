@@ -1,0 +1,61 @@
+﻿@model DBS_services.Models.Booking
+
+@{
+    ViewData["Title"] = "CancelBook";
+}
+
+<h1>CancelBook</h1>
+
+<div>
+    <h4>Booking</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderId)
+       
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DelivaryDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DelivaryDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PicKupTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PicKupTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+       
+    </dl>
+    <form asp-action="Delete" asp-controller="CBooking">
+        <input type="submit" value="CancelBooking" class="btn btn-primary" />
+    </form>
+   
+</div>
