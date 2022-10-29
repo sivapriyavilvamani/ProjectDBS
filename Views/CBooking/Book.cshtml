@@ -1,47 +1,77 @@
 ﻿@model DBS_services.Models.Booking
-
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Book";
+    ViewBag.Data = @HttpContextAccessor.HttpContext.Session.GetString("CName");
+    //ViewBag.CData = TempData["CName"];
+    //Layout = "CusPartial";
 }
 
-<h1>Book</h1>
-
-<h4>Booking</h4>
+<nav class="navbar navbar-expand-lg" style="float: right;">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            @* <li class="nav-item">
+                  <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage">Hello @ViewBag.CData!</a>
+                    </li>*@
+           @* <li class="nav-item active">
+                <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage"></a>
+            </li>*@
+            <li class="nav-item active">
+                <a id="manage" class="nav-link text-dark" asp-controller="" asp-action="" title="Manage">Hello @ViewBag.Data!</a>
+            </li>
+            <li class="nav-item">
+                <a id="manage" class="nav-link text-dark" asp-controller="History" asp-action="CancelCusHistory" title="Manage">CancelledBooking</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-primary ml-lg-3" id="login" asp-area="" asp-controller="Customer" asp-action="Logout"> Logout </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+@*<form>
+ <a class="btn btn-primary ml-lg-3" id="login" asp-area="" asp-controller="Customer" asp-action="Logout"><i class="bi bi-film"></i> Logout </a>
+  </form>*@
+<h4>Book</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Book">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
            
+           @* <div class="form-group">
+                <label asp-for="ExecId" class="control-label"></label>
+                <input asp-for="ExecId" class="form-control" />             
+                <span asp-validation-for="ExecId" class="text-danger"></span>
+            </div>*@
            
             <div class="form-group">
                 <label asp-for="Source" class="control-label"></label>
-                <input asp-for="Source" class="form-control" />
+                <input asp-for="Source" class="form-control" required />
                 <span asp-validation-for="Source" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Destination" class="control-label"></label>
-                <input asp-for="Destination" class="form-control" />
+                <input asp-for="Destination" class="form-control" required/>
                 <span asp-validation-for="Destination" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DelivaryDate" class="control-label"></label>
-                <input asp-for="DelivaryDate" class="form-control" />
+                <input asp-for="DelivaryDate" type="date" class="form-control"  />
                 <span asp-validation-for="DelivaryDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PicKupTime" class="control-label"></label>
-                <input asp-for="PicKupTime" class="form-control" />
+                <input asp-for="PicKupTime" type="time" class="form-control" />
                 <span asp-validation-for="PicKupTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
+                <input asp-for="Weight" class="form-control " id="weight" onkeyup="myFunction()"/>
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <label asp-for="Price" class="control-label" ></label>
+                <input asp-for="Price" class="form-control"id="price" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
            
@@ -52,9 +82,14 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<script>
+   
+    function myFunction(){
+        var weight = document.getElementById("weight").value;
+        var pricePerKg = 5;
+        document.getElementById("price").value = weight * pricePerKg;
+    }
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

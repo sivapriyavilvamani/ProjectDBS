@@ -1,0 +1,29 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: #EDE574; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E1F5C4, #EDE574); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E1F5C4, #EDE574); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.navstyle {
+    background: #EDE574; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E1F5C4, #EDE574); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E1F5C4, #EDE574);
+}
+.marginbtn{
+    margin-top:30px;
+}

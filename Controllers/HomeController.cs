@@ -15,6 +15,7 @@ namespace DBS_services.Controllers
 
         public IActionResult Index()
         {
+            //HttpContext.Session.SetString("Error", null);
             return View();
         }
 

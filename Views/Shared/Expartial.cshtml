@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Microsoft.AspNetCore.Http
+
+
+@{
+    <ul class="navbar-nav">
+        @{
+            ViewBag.EData = TempData["EXName"];
+        }
+
+        @if (ViewBag.CData != null)
+        {
+            <></>
+        }
+        else
+        {
+
+            @if (ViewBag.EData != null)
+            {
+                <li class="nav-item">
+                    <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage">Hello @ViewBag.EData!</a>
+                </li>
+                //<li class="nav-item">
+                //    <a id="manage" class="nav-link text-dark" asp-controller="CBooking" asp-action="Book" title="Manage">Book</a>
+                //</li>
+                <li class="nav-item">
+                    <form>
+                        <a class="btn btn-primary ml-lg-3" id="login" asp-area="" asp-controller="Customer" asp-action="Logout"><i class="bi bi-film"></i> Logout </a>
+                    </form>
+                </li>
+            }
+
+            else
+            {
+                <></>
+                //<li class="nav-item">
+                //    <a class="btn btn-primary ml-lg-3" id="login" asp-area="" asp-controller="Admin" asp-action="Login"><i class="bi bi-film"></i> Login / Register </a>
+                //</li>
+            }
+        }
+
+    </ul>
+}

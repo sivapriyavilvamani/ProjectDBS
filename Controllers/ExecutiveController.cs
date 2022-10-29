@@ -34,18 +34,37 @@ namespace DBS_services.Controllers
         [HttpPost]
         public async Task<IActionResult> login(EXRegistration r)
         {
+            EXRegistration logindata = new EXRegistration();
             using (var client = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(r), Encoding.UTF8, "application/json");
                 using (var response = await client.PostAsync("https://localhost:7016/api/EXlogin", content))
-                {
-                    string apiresponse = await response.Content.ReadAsStringAsync();
-                    var registration = JsonConvert.DeserializeObject<EXRegistration>(apiresponse);
-                }
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        {
+                            string apiresponse = await response.Content.ReadAsStringAsync();
+                            logindata = JsonConvert.DeserializeObject<EXRegistration>(apiresponse);
+                        }
+                        HttpContext.Session.SetInt32("ExecID", logindata.ExecId);
+                        HttpContext.Session.SetString("EName", logindata.ExecName);
 
+                        return RedirectToAction("Bookings", "EXBooking");
+                    }
+                    else
+                    {
+                        HttpContext.Session.SetString("Error", "Error");
+                      
+                        // ViewBag.LoginError = "Unable to login...! Please try again";
+                        return RedirectToAction("login");
+                    }
             }
-            return RedirectToAction("Bookings","EXBooking");
 
+        }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            //TempData.Clear();
+            return RedirectToAction("login");
         }
     }
 }

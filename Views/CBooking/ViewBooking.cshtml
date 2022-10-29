@@ -1,0 +1,112 @@
+﻿@model DBS_services.Models.Booking
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "ViewBooking";
+    ViewBag.Data = @HttpContextAccessor.HttpContext.Session.GetString("CName");
+}
+<nav class="navbar navbar-expand-lg" style="float: right;">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            @* <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage">Hello @ViewBag.CData!</a>
+            </li>*@
+            @* <li class="nav-item active">
+            <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage"></a>
+            </li>*@
+            <li class="nav-item active">
+                <a id="manage" class="nav-link text-dark" asp-controller="" asp-action="" title="Manage">Hello @ViewBag.Data!</a>
+            </li>
+            <li class="nav-item">
+                <a id="manage" class="nav-link text-dark" asp-controller="History" asp-action="CancelCusHistory" title="Manage">CancelledBooking</a>
+            </li>
+            <li class="nav-item">
+                <a id="manage" class="nav-link text-dark" asp-controller="CBooking" asp-action="Bookinglist" title="Manage">ViewBooking</a>
+            </li>
+          
+            <li class="nav-item">
+                <a class="btn btn-primary ml-lg-3" id="login" asp-area="" asp-controller="Customer" asp-action="Logout"> Logout </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+            
+<div>
+    <h4> You have succesfully Booked your Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ExecId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ExecId)
+           
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DelivaryDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DelivaryDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PicKupTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PicKupTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+       
+      
+    </dl>
+</div>
+<div class="d-flex">
+   @* @Html.ActionLink("Edit", "Edit", new {  id = Model.OrderId  }) *@
+    <form  asp-action="EditBook" asp-controller="CBooking" asp-route-id=@Model.OrderId >
+        <input type="submit" value="EditBooking" class="btn btn-primary" />
+    </form>
+    <form asp-action="Cancel" asp-controller="CBooking" asp-route-id=@Model.OrderId>
+        <input style="border-right:20px"; type="submit" value="CancelBooking" class="btn btn-primary " />
+    </form>
+</div>
+@*<div>
+    <script>
+        function myFunction() {
+            alert("Your Order has been Cancelled");
+        }
+    </script>
+</div>*@
