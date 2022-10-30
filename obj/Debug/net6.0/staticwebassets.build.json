@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GTg8PD8l8A1IysNVnhNnl7nQ6kekOtfpdhfcE8YW2Dg=",
+  "Hash": "4SkGqaCpIOhQtepQC81oSuypfs8Fh2gHE60eh+5yCXs=",
   "Source": "DBS_services",
   "BasePath": "_content/DBS_services",
   "Mode": "Default",
@@ -68,6 +68,40 @@
       "OriginalItemSpec": "wwwroot\\css\\711f2d5ebffb2a9fefeadd6906a54071.png_wh300.png"
     },
     {
+      "Identity": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\css\\711f2d5ebffb2a9fefeadd6906a54071.png_wh300__1_-removebg-preview.png",
+      "SourceId": "DBS_services",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\",
+      "BasePath": "_content/DBS_services",
+      "RelativePath": "css/711f2d5ebffb2a9fefeadd6906a54071.png_wh300__1_-removebg-preview.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\711f2d5ebffb2a9fefeadd6906a54071.png_wh300__1_-removebg-preview.png"
+    },
+    {
+      "Identity": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\css\\delivery system image.jpg",
+      "SourceId": "DBS_services",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\",
+      "BasePath": "_content/DBS_services",
+      "RelativePath": "css/delivery system image.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\delivery system image.jpg"
+    },
+    {
       "Identity": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\css\\Journal.css",
       "SourceId": "DBS_services",
       "SourceType": "Discovered",
@@ -85,12 +119,12 @@
       "OriginalItemSpec": "wwwroot\\css\\Journal.css"
     },
     {
-      "Identity": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\css\\pngtree-cartoon-green-delivery-courier-with-motorbike-png-image_3510104.jpg",
+      "Identity": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\css\\pngtree-cartoon-green-delivery-courier-with-motorbike-png-image_3510104-removebg-preview.png",
       "SourceId": "DBS_services",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\",
       "BasePath": "_content/DBS_services",
-      "RelativePath": "css/pngtree-cartoon-green-delivery-courier-with-motorbike-png-image_3510104.jpg",
+      "RelativePath": "css/pngtree-cartoon-green-delivery-courier-with-motorbike-png-image_3510104-removebg-preview.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,7 +133,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\pngtree-cartoon-green-delivery-courier-with-motorbike-png-image_3510104.jpg"
+      "OriginalItemSpec": "wwwroot\\css\\pngtree-cartoon-green-delivery-courier-with-motorbike-png-image_3510104-removebg-preview.png"
     },
     {
       "Identity": "D:\\softura training\\Api\\DBS_service\\Source\\DBS_services\\wwwroot\\css\\site.css",

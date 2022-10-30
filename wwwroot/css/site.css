@@ -19,11 +19,32 @@ body {
     background: -webkit-linear-gradient(to right, #E1F5C4, #EDE574); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #E1F5C4, #EDE574); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+.welcome {
+    position: absolute; 
+    /* top: 10%; */
+    /* left: 24%; */
+    font-weight: bolder;
+    color: #0f5132;
+    z-index: 1;
+    font: 800;
+    text-align:right;
+}
 .navstyle {
     background: #EDE574; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #E1F5C4, #EDE574); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #E1F5C4, #EDE574);
 }
-.marginbtn{
-    margin-top:30px;
+
+.para {
+     position:relative; 
+    top: 40%;
+    left: 10%;
+    color: #198754;
+    text-align: left;
 }
+.button {
+    position: center;
+    margin-bottom: 10px;
+    margin-top: 100px;
+    margin-left: 300px;
+} 

@@ -18,6 +18,11 @@ namespace DBS_services.Controllers
             //HttpContext.Session.SetString("Error", null);
             return View();
         }
+        public IActionResult AboutUs()
+        {
+            //HttpContext.Session.SetString("Error", null);
+            return View();
+        }
 
         public IActionResult Privacy()
         {
