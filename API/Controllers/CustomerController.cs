@@ -16,14 +16,34 @@ namespace Api_DBS.Controllers
         [HttpGet]
         public IActionResult GetCRegistration()
         {
-            return Ok(db.Cregistrations.ToList());
+            try
+            {
+                return Ok(db.Cregistrations.ToList());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
+
         }
         [HttpPost]
         public IActionResult AddRegistertration(Cregistration r)
         {
-            db.Cregistrations.Add(r);
-            db.SaveChanges();
-            return Ok(r);
+            try
+            {
+                db.Cregistrations.Add(r);
+                db.SaveChanges();
+                return Ok(r);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
        
     }

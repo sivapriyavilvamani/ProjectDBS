@@ -17,33 +17,69 @@ namespace Api_DBS.Controllers
         [Route("Getbooking{id}")]
         public IActionResult GetBooking(int id)
         {
-            var booking = (from i in db.Bookings
-                           where i.CustId == id && i.DelivaryDate >= DateTime.Now
-                           select i).ToList();
-            return Ok(booking);
+            try
+            {
+                var booking = (from i in db.Bookings
+                               where i.CustId == id && i.DelivaryDate >= DateTime.Now && i.PicKupTime >= DateTime.Today
+                               select i).ToList();
+                return Ok(booking);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
         [HttpPost]
         public IActionResult Booking(Booking b)
         {
-            db.Bookings.Add(b);
-            db.SaveChanges();
-            return Ok(b);
+            try
+            {
+                db.Bookings.Add(b);
+                db.SaveChanges();
+                return Ok(b);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+            
         }
         [HttpGet]
         [Route("GetOrderById{id}")]
         public IActionResult GetOrderById(int id)
         {
-            var f = db.Bookings.Find(id);
-            return Ok(f);
+            try
+            {
+                var f = db.Bookings.Find(id);
+                return Ok(f);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
         }
         [HttpPut]
         [Route("EditBooking{id}")]
         public IActionResult EditBooking(int id, Booking b)
 
         {
-            db.Bookings.Update(b);
-            db.SaveChanges();
-            return Ok(b);
+            try
+            {
+                db.Bookings.Update(b);
+                db.SaveChanges();
+                return Ok(b);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
         [HttpDelete]
         [Route("DeleteCancel{id}")]

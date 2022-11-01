@@ -16,22 +16,40 @@ namespace Api_DBS.Controllers
         [HttpGet]
         public IActionResult Getlogin()
         {
-            return Ok(db.Cregistrations.ToList());
+            try
+            {
+                return Ok(db.Cregistrations.ToList());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
+
         }
         [HttpPost]
         public IActionResult login(Cregistration r)
         {
-            var result = (from i in db.Cregistrations
-                          where i.FirstName==r.FirstName && i.Password==r.Password
-                          select i).SingleOrDefault();
-            if (result!=null)
+            try
             {
-                
-                return Ok(result);
+                var result = (from i in db.Cregistrations
+                              where i.FirstName==r.FirstName && i.Password==r.Password
+                              select i).SingleOrDefault();
+                if (result!=null)
+                {
+
+                    return Ok(result);
+                }
+                else
+                {
+                    return Unauthorized();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return Unauthorized();
+                Console.WriteLine(ex.Message);
+                return Ok();
             }
 
         }

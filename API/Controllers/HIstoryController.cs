@@ -17,30 +17,68 @@ namespace Api_DBS.Controllers
         [HttpGet]
         public IActionResult GetHistory()
         {
-            return Ok(db.Histories.ToList());
+            try
+            {
+                return Ok(db.Histories.ToList());
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
         [HttpPost]
         public IActionResult History(History h)
         {
-            db.Histories.Add(h);
-            db.SaveChanges();
-            return Ok(h);
+            try
+            {
+                db.Histories.Add(h);
+                db.SaveChanges();
+                return Ok(h);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
         [HttpGet]
         [Route("GetcancelHistoryById{id}")]
         public IActionResult GetcancelHistoryById(int id)
         {
-            var f = db.Histories.Find(id);
-            return Ok(f);
+            try
+            {
+                var f = db.Histories.Find(id);
+                return Ok(f);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
         [HttpGet]
         [Route("GetCusHistory{id}")]
         public IActionResult GetCusHistory(int id)
         {
-            var Cancelledbooking = (from i in db.Histories
-                           where i.CustId == id
-                           select i).ToList();
-            return Ok(Cancelledbooking);
+            try
+            {
+                var Cancelledbooking = (from i in db.Histories
+                                        where i.CustId == id
+                                        select i).ToList();
+                return Ok(Cancelledbooking);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
     }
 }

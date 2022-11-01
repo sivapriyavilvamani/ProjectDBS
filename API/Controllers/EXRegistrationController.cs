@@ -17,14 +17,32 @@ namespace Api_DBS.Controllers
         [HttpGet]
         public IActionResult GetERegistration()
         {
-            return Ok(db.Eregistrations.ToList());
+            try
+            {
+                return Ok(db.Eregistrations.ToList());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
         [HttpPost]
         public IActionResult AddRegistertration(Eregistration r)
         {
-            db.Eregistrations.Add(r);
-            db.SaveChanges();
-            return Ok(r);
+            try
+            {
+                db.Eregistrations.Add(r);
+                db.SaveChanges();
+                return Ok(r);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
        
 

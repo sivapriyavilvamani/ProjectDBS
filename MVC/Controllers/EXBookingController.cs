@@ -33,7 +33,7 @@ namespace DBS_services.Controllers
             }
             else
             {
-                return RedirectToAction("login", "Customer");
+                return RedirectToAction("login", "Executive");
             }
 
         }

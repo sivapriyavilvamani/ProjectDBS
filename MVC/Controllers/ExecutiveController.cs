@@ -9,7 +9,15 @@ namespace DBS_services.Controllers
     {
         public IActionResult Register()
         {
-            return View();
+            var EName = HttpContext.Session.GetString("EName");
+            if (EName != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Executive");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> Register(EXRegistration r)

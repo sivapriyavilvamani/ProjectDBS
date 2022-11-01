@@ -17,24 +17,52 @@ namespace Api_DBS.Controllers
         [Route("Getbooking{id}")]
         public IActionResult GetBooking(int id)
         {
-            var booking = (from i in db.Bookings
-                           where i.ExecId == id && i.DelivaryDate >= DateTime.Now
-                           select i).ToList();
-            return Ok(booking);
+            try
+            {
+                var booking = (from i in db.Bookings
+                               where i.ExecId == id && i.DelivaryDate >= DateTime.Today || i.PicKupTime >= DateTime.Today
+                               select i).ToList();
+                return Ok(booking);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
+
         }
         [HttpPost]
         public IActionResult Booking(Booking b)
         {
-            db.Bookings.Add(b);
-            db.SaveChanges();
-            return Ok(b);
+            try {
+                db.Bookings.Add(b);
+                db.SaveChanges();
+                return Ok(b);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
+
         }
         [HttpGet]
         [Route("GetBookingById{id}")]
         public IActionResult GetBookingById(int id)
         {
-            var b = db.Bookings.Find(id);
-            return Ok(b);
+            try
+            {
+                var b = db.Bookings.Find(id);
+                return Ok(b);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return Ok();
+            }
+
         }
        
         //[HttpPut]

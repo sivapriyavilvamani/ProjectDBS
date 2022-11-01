@@ -3,21 +3,47 @@
 @{
     ViewData["Title"] = "EditBooking";
 }
+<nav class="navbar navbar-expand-lg" style="float: right;">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            @* <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage">Hello @ViewBag.CData!</a>
+            </li>*@
+            @* <li class="nav-item active">
+            <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage"></a>
+            </li>*@
+            <li class="nav-item active">
+                <a id="manage" class="nav-link text-dark" asp-controller="" asp-action="" title="Manage">Hello @ViewBag.Data!</a>
+            </li>
+            <li class="nav-item">
+                <a id="manage" class="btn btn-warning nav-link text-dark " asp-controller="CBooking" asp-action="Bookinglist" title="Manage">ViewBooking</a>
+            </li>
+            <li class="nav-item">
+                <a id="manage" class="btn btn-warning nav-link text-dark " asp-controller="History" asp-action="CancelCusHistory" title="Manage">CancelledBooking</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-primary ml-lg-3" id="login" asp-area="" asp-controller="Customer" asp-action="Logout"> Logout </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-<h1>EditBooking</h1>
 
-<h4>Booking</h4>
+
+<h3>Edit Booking</h3>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="EditBooking">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="OrderId" class="control-label"></label>
-                <input asp-for="OrderId" class="form-control" />
-                <span asp-validation-for="OrderId" class="text-danger"></span>
+                <label asp-for="Zone" class="control-label"></label>
+                <select id="Zone" name="Zone">
+                    <option value="Chennai-North">Chennai-North</option>
+                    <option value="Chennai-South">Chennai-South</option>
+                </select>
             </div>
-           
            
             <div class="form-group">
                 <label asp-for="Source" class="control-label"></label>
@@ -31,7 +57,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DelivaryDate" class="control-label"></label>
-                <input asp-for="DelivaryDate" class="form-control" />
+                <input asp-for="DelivaryDate" class="form-control" id="DeliveryDate"  />
                 <span asp-validation-for="DelivaryDate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -51,21 +77,27 @@
             </div>
           
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" onsubmit="success()"/>
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <script>
-    <script>
 
-        function myFunction() {
-            var weight = document.getElementById("weight").value;
-            var pricePerKg = 5;
-            document.getElementById("price").value = weight * pricePerKg;
-        }
-</script>
+    //$(document).ready(function () {
+    //    var today = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000).toISOString().slice(0, 16);
+
+    //    var maxDate = new Date().toISOString().slice(0, 10);
+    //    $('#DeliveryDate').attr('min', maxDate);
+    //    //$("#PickUpTime")[0].min = today;
+    //}
+    function myFunction() {
+        var weight = document.getElementById("weight").value;
+        var pricePerKg = 5;
+        document.getElementById("price").value = weight * pricePerKg;
+    }
+
     function success(){
         alert("Your booking has been Successfully Edited");
     }

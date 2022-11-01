@@ -69,7 +69,7 @@
     </dl>
     
     <form asp-action="DeleteCancel" asp-controller="CBooking" asp-route-id=@Model.OrderId>
-        <input type="submit" value="Cancel" class="btn btn-danger" onsubmit="cancelSuccess()" /> 
+        <input type="submit" value="Cancel" class="btn btn-danger" onclick="cancelSuccess()" /> 
        
     </form>
     <script>

@@ -55,8 +55,15 @@ namespace DBS_services.Controllers
         public async Task<IActionResult> Book(Booking b)
         {
             //b.CustId = TempData.customerId;
-
-            b.ExecId = 1;
+            var zone = b.Zone;
+            if (zone == "Chennai-North")
+            {
+                b.ExecId=1;
+            }
+            else
+            {
+                b.ExecId = 2;
+            }
             b.CustId = HttpContext.Session.GetInt32("CustID");
 
             //b.ExecId = Convert.ToInt32(TempData["ExecutiveId"]);
@@ -133,7 +140,15 @@ namespace DBS_services.Controllers
             Booking receivedBookings = new Booking();
             int OrderId = Convert.ToInt32(TempData["OrderId"]);
             b.CustId = HttpContext.Session.GetInt32("CustID");
-            b.ExecId = 1;
+            var zone = b.Zone;
+            if (zone == "Chennai-North")
+            {
+                b.ExecId=1;
+            }
+            else
+            {
+                b.ExecId = 2;
+            }
             using (var httpClient = new HttpClient())
             {
 

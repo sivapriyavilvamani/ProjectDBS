@@ -11,10 +11,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             @* <li class="nav-item">
-                  <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage">Hello @ViewBag.CData!</a>
-                    </li>*@
-           @* <li class="nav-item active">
-                <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage"></a>
+            <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage">Hello @ViewBag.CData!</a>
+            </li>*@
+            @* <li class="nav-item active">
+            <a id="manage" class="nav-link text-dark" asp-controller="Home" asp-action="Privacy" title="Manage"></a>
             </li>*@
             <li class="nav-item active">
                 <a id="manage" class="nav-link text-dark" asp-controller="" asp-action="" title="Manage">Hello @ViewBag.Data!</a>
@@ -37,13 +37,22 @@
     <div class="col-md-4">
         <form asp-action="Book">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-           
-           @* <div class="form-group">
-                <label asp-for="ExecId" class="control-label"></label>
-                <input asp-for="ExecId" class="form-control" />             
-                <span asp-validation-for="ExecId" class="text-danger"></span>
+
+            @* <div class="form-group">
+            <label asp-for="ExecId" class="control-label"></label>
+            <input asp-for="ExecId" class="form-control" />
+            <span asp-validation-for="ExecId" class="text-danger"></span>
             </div>*@
-           
+            <div class="form-group">
+                <label asp-for="Zone" class="control-label"></label>
+                <select id="Zone" name="Zone">
+                    <option value="Chennai-North">Chennai-North</option>
+                    <option value="Chennai-South">Chennai-South</option>
+                </select>
+            </div>
+
+            <span asp-validation-for="Zone" class="text-danger"></span>
+
             <div class="form-group">
                 <label asp-for="Source" class="control-label"></label>
                 <input asp-for="Source" class="form-control" required />
@@ -51,12 +60,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Destination" class="control-label"></label>
-                <input asp-for="Destination" class="form-control" required/>
+                <input asp-for="Destination" class="form-control" required />
                 <span asp-validation-for="Destination" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DelivaryDate" class="control-label"></label>
-                <input asp-for="DelivaryDate" type="date" class="form-control"  />
+                <input asp-for="DelivaryDate" type="date" id="DeliveryDate"  class="form-control" />
                 <span asp-validation-for="DelivaryDate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -66,15 +75,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control " id="weight" onkeyup="myFunction()"/>
+                <input asp-for="Weight" class="form-control " id="weight" onkeyup="myFunction()" />
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label" ></label>
-                <input asp-for="Price" class="form-control"id="price" />
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" id="price" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-           
+
             <div class="form-group">
                 <input type="submit" value="Book" class="btn btn-primary" />
             </div>
@@ -83,14 +92,26 @@
 </div>
 
 <script>
-   
-    function myFunction(){
+    function myFunction() {
         var weight = document.getElementById("weight").value;
         var pricePerKg = 5;
         document.getElementById("price").value = weight * pricePerKg;
     }
+
+    //$(document).ready(function () {
+    //    var today = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000).toISOString().slice(0, 16);
+
+    //    var maxDate = new Date().toISOString().slice(0, 10);
+    //    $('#DeliveryDate').attr('min', maxDate);
+    //    //$("#PickUpTime")[0].min = today;
+    //}
+
+
+   
 </script>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
