@@ -139,6 +139,7 @@ namespace DBS_services.Controllers
         {
             Booking receivedBookings = new Booking();
             int OrderId = Convert.ToInt32(TempData["OrderId"]);
+            b.OrderId = OrderId;
             b.CustId = HttpContext.Session.GetInt32("CustID");
             var zone = b.Zone;
             if (zone == "Chennai-North")
@@ -152,10 +153,10 @@ namespace DBS_services.Controllers
             using (var httpClient = new HttpClient())
             {
 
-                int id = b.OrderId;
+                //int id = b.OrderId;
                 StringContent content1 = new StringContent(JsonConvert.SerializeObject(b)
          , Encoding.UTF8, "application/json");
-                using (var response = await httpClient.PutAsync("https://localhost:7016/api/CBooking/EditBooking" + id, content1))
+                using (var response = await httpClient.PutAsync("https://localhost:7016/api/CBooking/EditBooking" + OrderId, content1))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     ViewBag.Result = "Success";

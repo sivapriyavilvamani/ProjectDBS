@@ -27,6 +27,7 @@ namespace DBS_services.Models
         [Required(ErrorMessage = "PickUpTime cannot be empty")]
         public DateTime? PicKupTime { get; set; }
         [Required(ErrorMessage = "Weight is Required")]
+        [RegularExpression(@"^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[eE][+-][0-9]+)?$", ErrorMessage = "Negative Integers are Not Allowed")]
         public double? Weight { get; set; }
         public double? Price { get; set; }
         public int? PriceId { get; set; }

@@ -20,7 +20,7 @@ namespace Api_DBS.Controllers
             try
             {
                 var booking = (from i in db.Bookings
-                               where i.ExecId == id && i.DelivaryDate >= DateTime.Today || i.PicKupTime >= DateTime.Today
+                               where i.ExecId == id && i.DelivaryDate >= DateTime.Today && i.PicKupTime >= DateTime.Today
                                select i).ToList();
                 return Ok(booking);
             }

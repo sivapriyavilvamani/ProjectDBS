@@ -64,8 +64,9 @@
                 <span asp-validation-for="Destination" class="text-danger"></span>
             </div>
             <div class="form-group">
+
                 <label asp-for="DelivaryDate" class="control-label"></label>
-                <input asp-for="DelivaryDate" type="date" id="DeliveryDate"  class="form-control" />
+                <input asp-for="DelivaryDate" type="date" id="DeliveryDate" class="form-control" />
                 <span asp-validation-for="DelivaryDate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -75,7 +76,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control " id="weight" onkeyup="myFunction()" />
+                <input asp-for="Weight" class="form-control " id="weight" onkeyup="myFunction()" min="1" />
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -90,6 +91,7 @@
         </form>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script>
     function myFunction() {
@@ -97,17 +99,24 @@
         var pricePerKg = 5;
         document.getElementById("price").value = weight * pricePerKg;
     }
+    
+        $(function () {
+            var dtToday = new Date();
 
-    //$(document).ready(function () {
-    //    var today = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000).toISOString().slice(0, 16);
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if (month < 10)
+                month = '0' + month.toString();
+            if (day < 10)
+                day = '0' + day.toString();
 
-    //    var maxDate = new Date().toISOString().slice(0, 10);
-    //    $('#DeliveryDate').attr('min', maxDate);
-    //    //$("#PickUpTime")[0].min = today;
-    //}
+            var minDate = year + '-' + month + '-' + day;
+
+        $('#DeliveryDate').attr('min', minDate);
+        });
 
 
-   
 </script>
 
 @section Scripts {

@@ -1,4 +1,7 @@
-﻿namespace DBS_services.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
+namespace DBS_services.Models
 {
     public class CancelHistory
     {
@@ -7,6 +10,7 @@
         public int? ExecId { get; set; }
         public string? Source { get; set; }
         public string? Destination { get; set; }
+        [Display(Name = "Delivery Date")]
         public DateTime? DelivaryDate { get; set; }
         public DateTime? PicKupTime { get; set; }
         public double? Weight { get; set; }

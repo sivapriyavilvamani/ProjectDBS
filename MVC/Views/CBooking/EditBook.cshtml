@@ -16,7 +16,7 @@
                 <a id="manage" class="nav-link text-dark" asp-controller="" asp-action="" title="Manage">Hello @ViewBag.Data!</a>
             </li>
             <li class="nav-item">
-                <a id="manage" class="btn btn-warning nav-link text-dark " asp-controller="CBooking" asp-action="Bookinglist" title="Manage">ViewBooking</a>
+                <a id="manage" class="btn btn-primary nav-link text-dark " asp-controller="CBooking" asp-action="Bookinglist" title="Manage">ViewBooking</a>
             </li>
             <li class="nav-item">
                 <a id="manage" class="btn btn-warning nav-link text-dark " asp-controller="History" asp-action="CancelCusHistory" title="Manage">CancelledBooking</a>
@@ -72,7 +72,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" id="price" />
+                <input asp-for="Price" class="form-control" id="price" readonly/>
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
           
@@ -82,7 +82,7 @@
         </form>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 
     //$(document).ready(function () {
@@ -97,6 +97,21 @@
         var pricePerKg = 5;
         document.getElementById("price").value = weight * pricePerKg;
     }
+    $(function () {
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        var minDate = year + '-' + month + '-' + day;
+
+        $('#DeliveryDate').attr('min', minDate);
+    });
 
     function success(){
         alert("Your booking has been Successfully Edited");
