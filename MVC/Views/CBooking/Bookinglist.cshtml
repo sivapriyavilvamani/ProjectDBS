@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<DBS_services.Models.Booking>
 @inject IHttpContextAccessor HttpContextAccessor
 @{
+    Layout = "_Layout2";
     ViewData["Title"] = "Bookinglist";
     ViewBag.Data = @HttpContextAccessor.HttpContext.Session.GetString("CName");
 }
@@ -30,7 +31,7 @@
 
 <table class="table">
     <thead>
-        <tr>
+        <tr  style = "font-size:20px" >
             <th>
                 @Html.DisplayNameFor(model => model.OrderId)
             </th>
@@ -64,7 +65,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr style = "font-size:16px">
             <td>
                 @Html.DisplayFor(modelItem => item.OrderId)
             </td>
@@ -97,7 +98,7 @@
             <td>
                 @Html.ActionLink("Edit", "EditBooK","CBooking", new  {  id=item.OrderId}) |
                @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                @Html.ActionLink("Delete", "Cancel","CBooking", new { id=item.OrderId })
+                @Html.ActionLink("Cancel", "Cancel","CBooking", new { id=item.OrderId })
             </td>
         </tr>
 }

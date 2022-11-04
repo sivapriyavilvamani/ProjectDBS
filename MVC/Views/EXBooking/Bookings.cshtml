@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<DBS_services.Models.Booking>
 @inject IHttpContextAccessor HttpContextAccessor
 @{
+    Layout = "_Layout2";
     ViewData["Title"] = "Bookings";
     ViewBag.Data = @HttpContextAccessor.HttpContext.Session.GetString("EName");
 }

@@ -1,6 +1,7 @@
 ﻿@model DBS_services.Models.Booking
 @inject IHttpContextAccessor HttpContextAccessor
 @{
+    Layout = "_Layout2";
     ViewData["Title"] = "Book";
     ViewBag.Data = @HttpContextAccessor.HttpContext.Session.GetString("CName");
     //ViewBag.CData = TempData["CName"];
@@ -49,9 +50,8 @@
                     <option value="Chennai-North">Chennai-North</option>
                     <option value="Chennai-South">Chennai-South</option>
                 </select>
+                <span asp-validation-for="Zone" class="text-danger"></span>
             </div>
-
-            <span asp-validation-for="Zone" class="text-danger"></span>
 
             <div class="form-group">
                 <label asp-for="Source" class="control-label"></label>
@@ -99,22 +99,22 @@
         var pricePerKg = 5;
         document.getElementById("price").value = weight * pricePerKg;
     }
-    
-        $(function () {
-            var dtToday = new Date();
 
-            var month = dtToday.getMonth() + 1;
-            var day = dtToday.getDate();
-            var year = dtToday.getFullYear();
-            if (month < 10)
-                month = '0' + month.toString();
-            if (day < 10)
-                day = '0' + day.toString();
+    $(function () {
+        var dtToday = new Date();
 
-            var minDate = year + '-' + month + '-' + day;
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        var minDate = year + '-' + month + '-' + day;
 
         $('#DeliveryDate').attr('min', minDate);
-        });
+    });
 
 
 </script>

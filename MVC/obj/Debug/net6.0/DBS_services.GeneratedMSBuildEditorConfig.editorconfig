@@ -47,14 +47,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/softura training/Api/DBS_service/Source/DBS_services/Views/Eregistration/login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJlZ2lzdHJhdGlvblxsb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/softura training/Api/DBS_service/Source/DBS_services/Views/Eregistration/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJlZ2lzdHJhdGlvblxSZWdpc3Rlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/softura training/Api/DBS_service/Source/DBS_services/Views/EXBooking/Bookings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRVhCb29raW5nXEJvb2tpbmdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -105,6 +97,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/softura training/Api/DBS_service/Source/DBS_services/Views/Shared/Expartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEV4cGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/softura training/Api/DBS_service/Source/DBS_services/Views/Shared/_Layout2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/softura training/Api/DBS_service/Source/DBS_services/Views/Shared/_ValidationScriptsPartial.cshtml]

@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<DBS_services.Models.CancelHistory>
 @inject IHttpContextAccessor HttpContextAccessor
 @{
+    Layout = "_Layout2";
     ViewData["Title"] = "CancelCusHistory";
     ViewBag.Data = @HttpContextAccessor.HttpContext.Session.GetString("CName");
 }

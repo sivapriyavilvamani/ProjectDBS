@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Views\DBS\" />
+    <Folder Include="Views\Eregistration\" />
   </ItemGroup>
 
 </Project>

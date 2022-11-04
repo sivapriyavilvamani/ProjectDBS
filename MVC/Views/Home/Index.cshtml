@@ -1,15 +1,16 @@
 ﻿@{
+    Layout = "_Layout";
     ViewData["Title"] = "Home Page";
 }
 
 <div class="row">
-    <div class="col-md-4">
-        <img src="~/css/pngtree-cartoon-green-delivery-courier-with-motorbike-png-image_3510104-removebg-preview.png" height="600px" width="500px" />
+   <div class="col-md-4">
+       @* <img src="~/css/pngtree-cartoon-green-delivery-courier-with-motorbike-png-image_3510104-removebg-preview.png" height="600px" width="500px" />*@
     </div>
     <div class="col-md-8">
         <div class="welcome">
 
-            <h1 style="font-size:55px;text-shadow:2px 2px 1px black;"><b>WELCOME  TO   DBS_services</b></h1>
+            <h1 style="font-size:55px;text-shadow:2px 2px 1px black;"><b>WELCOME  TO   DBS_Services</b></h1>
         </div>
         <div class="button" >
             <a asp-area="" asp-controller="Customer" asp-action="login" class="btn btn-warning" style="margin-left:30px">Customer</a>
@@ -17,14 +18,19 @@
         </div>
 
         <div class="para">
-            <h1 style="text-shadow:2px 2px 1px orange"><b>Chennai We Are Here!!..</b></h1>
-            <p>Why step out when you can get everything delivered home with the tap of a button?, Thanks to our </p>
+            <h1 style="text-shadow:2px 2px 1px "><b>Chennai We Are Here!!..</b></h1>
+            <div class="paragraph">
+            <p><Why step out when you can get everything delivered home with the tap of a button?, Thanks to our </p>
             <p>Chennai’s favourite delivery app gets you Gifts and Send Packages from one end of the city to the other... </p>
             <p>
+                <pre>
                 From your local kirana stores to your favourite brands,
-                grocery shopping to your forgotten charger, we are always on the move for you.
+                grocery shopping to your forgotten charger,
+                we are always on the move for you.
                 Why worry about your chores, when you can get it all Done with DBS!
+                </pre>
             </p>
+            </div>
         </div>
 
     </div>
